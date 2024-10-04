@@ -6,11 +6,13 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     ],
   },
-  serverMiddleware: ['~/server/index.js'], // Proxy backend server
+  serverMiddleware: [
+    { path: '/api', handler: '~/server/index.js' }, // Proxy backend server
+  ],
   buildModules: ['@nuxtjs/axios'],
   css: ['ant-design-vue/dist/antd.css'],
   plugins: ['~/plugins/antd-ui.js'],
   axios: {
-    baseURL: 'http://localhost:3000', // Pointing axios to the backend server
+    baseURL: 'http://localhost:5000/api', // Adjust to include the API prefix
   },
 };

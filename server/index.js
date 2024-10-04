@@ -1,44 +1,42 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const connectDB = require('./db');
-const Expense = require('./models/Expense');
+// frontend/server/index.js
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config(); // Load environment variables from .env file
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }); 
+    console.log('MongoDB connected successfully');
+  } catch (err) {
+    console.error('MongoDB connection error:', err);
+    process.exit(1);
+  }
+};
 
 const app = express();
-const PORT = 5000;
+
+// Middleware
+app.use(bodyParser.json());
+app.use(cors());
 
 // Connect to MongoDB
 connectDB();
 
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
-
-// Routes
-
-// Fetch all expenses
-app.get('/api/expenses', async (req, res) => {
-  try {
-    const expenses = await Expense.find();
-    res.json(expenses);
-  } catch (error) {
-    res.status(500).json({ message: 'Error fetching expenses', error });
-  }
-});
-
-// Add a new expense
-app.post('/api/expenses', async (req, res) => {
-  try {
-    const { name, amount, date } = req.body;
-    const newExpense = new Expense({ name, amount, date });
-    await newExpense.save();
-    res.json(newExpense);
-  } catch (error) {
-    res.status(500).json({ message: 'Error adding expense', error });
-  }
+// Sample route
+app.get('/api/expenses', (req, res) => {
+  // Fetch expenses logic here
+  res.json([]);
 });
 
 // Start the server
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });

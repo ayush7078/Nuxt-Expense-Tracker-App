@@ -23,7 +23,10 @@ expense-tracker/
 │   ├── pages/                     # Nuxt.js pages
 │   ├── plugins/                   # Plugins (Ant Design)
 │   ├── server/                    # Express.js server
-│   │   └── index.js               # Backend code (API and MongoDB connection)
+│       ├── models/                    # Express.js server
+│           └── Expense.js               # Backend code (Models)
+│       └── index.js               # Backend code (API and MongoDB connection)
+│       └── db.js               # Backend code (MongoDB connection)
 │   ├── static/                    # Static files
 │   ├── store/                     # Vuex store (if needed)
 │   ├── nuxt.config.js             # Nuxt.js configuration
@@ -46,7 +49,7 @@ MongoDB: Running locally or a cloud instance (e.g., MongoDB Atlas)
 
 Installation
 Clone the Repository
-git clone https://github.com/your-username/expense-tracker.git
+git clone https://github.com/ayush7078/expense-tracker.git
 cd expense-tracker/frontend
 Install Dependencies
 

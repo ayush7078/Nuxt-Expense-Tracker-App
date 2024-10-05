@@ -13,6 +13,6 @@ export default {
   css: ['ant-design-vue/dist/antd.css'],
   plugins: ['~/plugins/antd-ui.js'],
   axios: {
-    baseURL: 'http://localhost:5000/api', // Adjust to include the API prefix
+    baseURL: 'http://localhost:5000/', 
   },
 };

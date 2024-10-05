@@ -23,17 +23,16 @@ expense-tracker/
 │   ├── pages/                     # Nuxt.js pages
 │   ├── plugins/                   # Plugins (Ant Design)
 │   ├── server/                    # Express.js server
-│       ├── models/                    # Express.js server
-│           └── Expense.js               # Backend code (Models)
 │       └── index.js               # Backend code (API and MongoDB connection)
-│       └── db.js               # Backend code (MongoDB connection)
+│       └── db.js                  # Backend code (MongoDB connection)
 │   ├── static/                    # Static files
 │   ├── store/                     # Vuex store (if needed)
 │   ├── nuxt.config.js             # Nuxt.js configuration
 │   └── package.json               # NPM dependencies and scripts
-│
-├── .env                           # Environment variables
-└── README.md                      # Project documentation
+|   ├── .env                           # Environment variables
+|   └── README.md                      # Project documentation
+
+
 Technologies
 Frontend: Nuxt.js, Ant Design Vue, Axios
 Backend: Node.js, Express.js, MongoDB
@@ -44,7 +43,7 @@ Ensure you have the following installed on your system:
 
 Node.js: >= 12.x
 npm: >= 6.x
-MongoDB: Running locally or a cloud instance (e.g., MongoDB Atlas)
+MongoDB: Running locally or a cloud instance 
 
 
 Installation
